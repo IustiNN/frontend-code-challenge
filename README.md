@@ -1,49 +1,27 @@
-# Front-End Interview Test
+# frontend-code-challenge
 
-This is a simple front-end code challenge created to serve two purposes:
+> A Vue.js project
 
-1. Show off your skills,
-1. Give us a better understanding of your skills.
+## Build Setup
 
-## The Task
+``` bash
+# install dependencies
+npm install
 
-The programming challenge exists in 2 parts:
-* Part A: HTML + CSS
-* Part B: Javascript
+# serve with hot reload at localhost:8080
+npm run dev
 
-### PART A: HTML + CSS
+# build for production with minification
+npm run build
 
-![Screen](https://raw.githubusercontent.com/mcmakler/frontend-code-challenge/master/assets/fe_test_example_screen.png)
+# build for production and view the bundle analyzer report
+npm run build --report
 
-* Create a layout based on the given screen (fe_test_example_screen.png).
-* Style the layout consistently and beautifully, adhering as closely to the design as possible.
-* **NOTE:** You are free to use any preprocessor you wish, or write raw CSS. *Bonus points for an explanation of your choice.*
+# run unit tests
+npm run unit
 
-### PART B: Javascript
+# run all tests
+npm test
+```
 
-* Consume our public API @ https://api.mcmakler.de/v1/advertisements to retrieve a list of advertisements of vacant apartments.
-* Display the first 10 advertisements in the HTML + CSS layout created in step A, sticking to the layout, placing data where it fits.
-* **NOTE:** You are free to use any framework you wish, or do it VanillaJS style. *Brief explanation of your choice.*
-
-## Additional Instructions
-
-* Fork this repository
-* After you're done, provide us the link to your repository.
-* Leave comments where you were not sure how to properly proceed.
-* Implementations without a README will be automatically rejected.
-* No pull requests
-* ES6 and above
-
-## Bonus Points
-
-* Tests
-* Clean code!
-* Knowledge of application flow.
-* Knowledge of modern best practices/coding patterns.
-* Demonstration of good state management.
-* Usage of frameworks/supersets.
-* Pixel perfection.
-* Componential thinking.
-* Usage of linters.
-* Git hooks.
-* Usage of Material Design concepts
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -1,4 +1,15 @@
 {
-  "presets": "babel-preset-env",
-  "plugins": ["syntax-async-functions"]
+  "presets": [
+    ["env", {
+      "modules": false
+    }],
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime"],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["istanbul"]
+    }
+  }
 }
