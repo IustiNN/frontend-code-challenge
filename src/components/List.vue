@@ -18,6 +18,7 @@
 
 <script>
   import Single from './Single.vue'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'List',
@@ -25,29 +26,28 @@
     data () {
       return {
         loading: false,
-        allAds: [],
-        ads: [],
         countAds: 10
       }
     },
     methods: {
       loadMoreAds () {
-        this.countAds += 10
-        this.ads = this.allAds.slice(0, this.countAds)
+        this.$store.dispatch('loadMoreAds')
       }
     },
+    computed: mapState(['ads', 'adsLoaded']),
     mounted () {
-      this.loading = true
-      this.$http.get('https://cors-anywhere.herokuapp.com/https://api.mcmakler.de/v1/advertisements')
-        .then((response) => {
-          console.log('success', response.data.data)
-          this.allAds = response.data.data
-          this.ads = this.allAds.slice(0, this.countAds)
-        }, (response) => {
-          console.log('error', response)
-        }).then(() => {
-          this.loading = false
-        })
+      this.$store.dispatch('getAllAds')
+//      this.loading = true
+//      this.$http.get('https://cors-anywhere.herokuapp.com/https://api.mcmakler.de/v1/advertisements')
+//        .then((response) => {
+//          console.log('success', response.data.data)
+//          this.allAds = response.data.data
+//          this.ads = this.allAds.slice(0, this.countAds)
+//        }, (response) => {
+//          console.log('error', response)
+//        }).then(() => {
+//          this.loading = false
+//        })
     }
   }
 </script>
