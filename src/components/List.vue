@@ -1,8 +1,5 @@
 <template>
-  <div class="ui container">
-    <div class="ui active dimmer" v-if="loading">
-      <div class="ui loader"></div>
-    </div>
+  <div>
     <h1 class="ui dividing header centered">Ads List</h1>
     <div class="ui three column grid link stackable cards ads-list" v-if="ads.length">
       <router-link class="ui card ad" :to="{name: 'detail', params: {id: index, props: ad} }" v-for="(ad, index) in ads" :key="ad.additionalId">
@@ -23,31 +20,14 @@
   export default {
     name: 'List',
     components: { Single },
-    data () {
-      return {
-        loading: false,
-        countAds: 10
-      }
-    },
     methods: {
       loadMoreAds () {
         this.$store.dispatch('loadMoreAds')
       }
     },
-    computed: mapState(['ads', 'adsLoaded']),
+    computed: mapState(['ads', 'adsLoaded', 'loading']),
     mounted () {
       this.$store.dispatch('getAllAds')
-//      this.loading = true
-//      this.$http.get('https://cors-anywhere.herokuapp.com/https://api.mcmakler.de/v1/advertisements')
-//        .then((response) => {
-//          console.log('success', response.data.data)
-//          this.allAds = response.data.data
-//          this.ads = this.allAds.slice(0, this.countAds)
-//        }, (response) => {
-//          console.log('error', response)
-//        }).then(() => {
-//          this.loading = false
-//        })
     }
   }
 </script>

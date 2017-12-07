@@ -1,12 +1,20 @@
 <template>
   <div id="app">
+    <div class="ui active inverted dimmer" v-show="checkLoading">
+      <div class="ui loader"></div>
+    </div>
     <div class="ui container"><router-view/></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    checkLoading () {
+      return this.$store.getters.loading
+    }
+  }
 }
 </script>
 
