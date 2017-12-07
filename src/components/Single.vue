@@ -12,11 +12,9 @@
       <p class="address">{{ad.realestateSummary.address.postalCode}} {{ad.realestateSummary.address.city}}</p>
     </div>
     <div class="content extra-details">
-      <p class="price bold"><strong>{{ad.advertisementPrice.baseRent}} $</strong></p>
-      <span class="right floated">
-            ab {{ad.realestateSummary.space}} m&sup2;
-          </span>
-      {{ad.realestateSummary.numberOfRooms}} Zimmer
+      <div class="price bold"><strong>{{ad.advertisementPrice.baseRent}} $</strong></div>
+      <div>{{ad.realestateSummary.numberOfRooms}} Zimmer</div>
+      <div class="area right floated">ab {{ad.realestateSummary.space | formatSpace}} m&sup2;</div>
     </div>
   </div>
 </template>
@@ -37,40 +35,48 @@
         required: true,
         default: {}
       }
+    },
+    filters: {
+      formatSpace (value) {
+        return value.toFixed(2)
+      }
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .ui.card, .ui.cards>.card,
-  #app .card > div {
+  .ui.card, .ui.card .image {
     border-radius: 0!important;
   }
   #app .content {
-    padding: 2em 2em 0;
+    padding: 1.5em 1.5em 0;
+    text-align: left;
   }
   #app .description {
     font-size: 1em;
     color: #464545;
     margin-bottom: .7em;
     font-weight: 600;
+    height: 40px;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  #app .price {
+  .price {
     color: #464545;
-  }
-  .card {
-    padding-bottom: 2em;
+    margin-right: 15px;
   }
   .address {
     color: #b7b7b7;
     font-size: .7em;
     font-weight: 700;
-    margin-bottom: 2em!important;
+    /*margin-bottom: 2em!important;*/
     clear: both;
   }
-  #app
-  .ui.cards .card .button {
+  #app .card .button {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -82,18 +88,17 @@
   }
   .extra-details {
     font-size: 1.1em;
+    border-top: none!important;
+    border: none;
     color: #7a7a7a;
+    display: flex;
   }
-
-  @media screen and (min-width: 1600px) {
-    .extra-details {
-      float: right;
-    }
-    .extra-details > p {
-      float: right;
-    }
-    .area {
-      border-right: 1px solid #7a7a7a;
-    }
+  .extra-details > div {
+    flex: 1;
+    font-size: .8em;
+  }
+  .area {
+    border-left: 1px solid #7a7a7a;
+    padding-left: 1em;
   }
 </style>

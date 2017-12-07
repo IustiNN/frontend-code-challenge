@@ -3,11 +3,9 @@
 import Vue from 'vue'
 import router from './router'
 import Vuex from 'vuex'
-import VueResource from 'vue-resource'
 import store from './store/AdsStore'
 import App from './App'
 
-Vue.use(VueResource)
 Vue.use(Vuex)
 Vue.config.productionTip = false
 

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="ui dividing header centered">Ads List</h1>
-    <div class="ui three column grid link stackable cards ads-list" v-if="ads.length">
+    <h1 class="ui container text dividing header centered">Ads List</h1>
+    <div class="ui link stackable cards centered ads-list" v-if="ads.length">
       <router-link class="ui card ad" :to="{name: 'detail', params: {id: index, props: ad} }" v-for="(ad, index) in ads" :key="ad.additionalId">
         <Single name="SingleAd" :key="ad.additionalId" :ad="ad"/>
       </router-link>
@@ -37,17 +37,10 @@
   .ui.dividing.header {
     margin-bottom: 2em;
   }
-  h1, h2 {
-    font-weight: normal;
+  .ui.container {
+    padding: 3em 0;
   }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+
   a {
     color: #42b983;
   }
@@ -59,5 +52,18 @@
   }
   .ui.center {
     text-align: center;
+  }
+  #app .ui.card {
+    padding-bottom: 2em;
+  }
+  @media only screen and (max-width: 767px) {
+    .ui.stackable.cards>.card {
+      margin: 1em auto;
+      padding-bottom: 2em!important;
+      max-width: 290px;
+    }
+  }
+  .ui.dimmer {
+    position: fixed;
   }
 </style>
