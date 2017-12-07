@@ -21,15 +21,8 @@
 
 <script>
   export default {
-    created () {
-      // fetch the data when the view is created and the data is
-      if (this.$route.name === 'Single') {
-        this.ad = this.$route.params.props
-      }
-    },
     name: 'Single',
     props: {
-      index: { type: Number },
       ad: {
         type: Object,
         required: true,

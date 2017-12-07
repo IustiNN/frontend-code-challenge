@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="ui active inverted dimmer" v-show="checkLoading">
+    <div class="ui active inverted dimmer" v-show="loading">
       <div class="ui loader"></div>
     </div>
     <div class="ui container"><router-view/></div>
@@ -8,14 +8,11 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-  computed: {
-    checkLoading () {
-      return this.$store.getters.loading
-    }
+  import { mapGetters } from 'vuex'
+  export default {
+    name: 'app',
+    computed: mapGetters(['loading'])
   }
-}
 </script>
 
 <style>

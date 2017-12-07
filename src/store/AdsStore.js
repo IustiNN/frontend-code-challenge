@@ -10,7 +10,7 @@ const state = {
   loading: false
 }
 
-const actions = {
+export const actions = {
   getAllAds: (context) => {
     context.commit('change_loading', true)
     api.get('https://cors-anywhere.herokuapp.com/https://api.mcmakler.de/v1/advertisements')
@@ -26,14 +26,14 @@ const actions = {
   }
 }
 
-const getters = {
+export const getters = {
   ads: (state) => state.ads,
   adsToLoad: (state) => state.adsToLoad,
   loading: (state) => state.loading
 }
 
 // mutations
-const mutations = {
+export const mutations = {
   receive_ads: (state, ads) => {
     state.ads = ads
   },
